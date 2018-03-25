@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  tecaxd The Tecax Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: tecaxd
+# processname: tecaxd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/tecaxd, see below
+if [ -f /etc/sysconfig/tecaxd ]; then
+        . /etc/sysconfig/tecaxd
+fi
+
+RETVAL=0
+
+prog=tecaxd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/tecaxd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/tecaxd}
+
+# tecaxd defaults to /usr/bin/tecaxd, override with BITCOIND_BIN
+tecaxd=${BITCOIND_BIN-/usr/bin/tecaxd}
+
+# tecaxd opts default to -disablewallet, override with BITCOIND_OPTS
+tecaxd_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $tecaxd $tecaxd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

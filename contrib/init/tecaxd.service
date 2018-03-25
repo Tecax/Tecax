@@ -1,0 +1,22 @@
+[Unit]
+Description=Tecax's distributed currency daemon
+After=network.target
+
+[Service]
+User=tecaxcore
+Group=tecaxcore
+
+Type=forking
+PIDFile=/var/lib/tecaxd/tecaxd.pid
+ExecStart=/usr/bin/tecaxd -daemon -pid=/var/lib/tecaxd/tecaxd.pid \
+-conf=/etc/tecaxcore/tecax.conf -datadir=/var/lib/tecaxd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

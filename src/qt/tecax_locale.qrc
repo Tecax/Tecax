@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/tecax_bg.qm</file>
+        <file alias="de">locale/tecax_de.qm</file>
+        <file alias="en">locale/tecax_en.qm</file>
+        <file alias="es">locale/tecax_es.qm</file>
+        <file alias="fi">locale/tecax_fi.qm</file>
+        <file alias="fr">locale/tecax_fr.qm</file>
+        <file alias="it">locale/tecax_it.qm</file>
+        <file alias="ja">locale/tecax_ja.qm</file>
+        <file alias="pl">locale/tecax_pl.qm</file>
+        <file alias="pt">locale/tecax_pt.qm</file>
+        <file alias="ru">locale/tecax_ru.qm</file>
+        <file alias="sk">locale/tecax_sk.qm</file>
+        <file alias="sv">locale/tecax_sv.qm</file>
+        <file alias="vi">locale/tecax_vi.qm</file>
+        <file alias="zh_CN">locale/tecax_zh_CN.qm</file>
+        <file alias="zh_TW">locale/tecax_zh_TW.qm</file>
+    </qresource>
+</RCC>

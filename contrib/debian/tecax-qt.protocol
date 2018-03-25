@@ -1,0 +1,11 @@
+[Protocol]
+exec=tecax-qt '%u'
+protocol=tecax
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

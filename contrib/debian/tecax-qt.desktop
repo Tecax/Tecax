@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Tecax
+Comment=Tecax P2P Cryptocurrency
+Comment[fr]=Tecax, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Tecax, eşten eşe kriptografik sanal para birimi
+Exec=tecax-qt %u
+Terminal=false
+Type=Application
+Icon=tecax128
+MimeType=x-scheme-handler/tecax;
+Categories=Office;Finance;
